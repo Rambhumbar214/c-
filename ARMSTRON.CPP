@@ -1,41 +1,26 @@
-#include <iostream.h>
-#include <cmath.h>
-#include <conio.h>
-
-
-bool isArmstrong(int num) 
-     {
-    int originalNum = num, sum = 0, digits = 0;
-
-    
-    while (num != 0) {
-        digits++;
-        num /= 10;
-    }
-
-    num = originalNum;
-
-   
-    while (num != 0) {
-        int digit = num % 10;
-        sum += pow(digit, digits);
-        num /= 10;
-    }
-
-   
-    return sum == originalNum;
+#include<iostream.h>
+#include<conio.h>
+int main()
+{
+int num,orinum,rem,result=0;
+clrscr();
+cout<<"enter three digit number:";
+cin>>num;
+orinum=num;
+while(orinum!=0)
+{
+	rem=orinum%10;
+	result+=rem*rem*rem;
+	orinum/=10;
 }
-
-int main() {
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-
-    if (isArmstrong(num)) {
-        cout << num << " is an Armstrong number." ;
-    } else {
-        cout << num << " is not an Armstrong number." ;
-    }
-
-    return 0;
+if(result==num)
+	{
+	cout<<num<<"is armstrong";
+	}
+else
+	{
+	cout<<num<<"is not armstrong";
+	}
+getch();
+return 0;
 }
