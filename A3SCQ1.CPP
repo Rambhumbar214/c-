@@ -6,6 +6,9 @@
  char worker_name[20];
  int No_of_days_work;
  float pay_rate,salary;
+ char w[20];
+ int nd;
+ float p,s;
 	public:
 
 	worker()
@@ -20,9 +23,13 @@
        strcpy(worker_name,w_n);
 	No_of_days_work=nd;
 	pay_rate=pr;
-
 	}
-
+   worker(const worker &w) {
+	strcpy(worker_name, w.worker_name);
+	No_of_days_work = w.No_of_days_work;
+	pay_rate = w.pay_rate;
+	salary = w.salary;
+    }
 	void calculate()
 	{
 	salary=No_of_days_work*pay_rate;
@@ -50,9 +57,16 @@
  cin>>part;
  worker w1;
  worker w2(name,no_d,part);
+ worker w3 = w2;
+
+
  w1.calculate();
  w2.calculate();
+ w3.calculate();
+
  w1.display();
  w2.display();
+ w3.display();
+
        getch();
  }
